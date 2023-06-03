@@ -93,8 +93,14 @@ console.log(getArrayWithoutEvenNumbers([1, 9, 17])); // [1, 9, 17]
 // Jeśli w tablicy nie występuje żadna wartość parzysta lub nieparzysta
 // Podstawn za nią 0
 
-const getSumOfSomething = () => {
-    // ...
+const getSumOfSomething = (array) => {
+    const evenNumbers = array.filter(item => item % 2 === 0)
+    const evenNumber = evenNumbers.length ? Math.min(...evenNumbers) : 0
+
+    const oddNumbers = array.filter(item => item % 2 === 1)
+    const oddNumber = oddNumbers.length ? Math.max(...oddNumbers) : 0
+
+    return oddNumber + evenNumber;
 }
 
 console.log(getSumOfSomething([1, 8, 4, 27, 13, 30])); // 31
