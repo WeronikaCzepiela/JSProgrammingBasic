@@ -112,9 +112,19 @@ console.log(getSumOfSomething([2, 2, 1, 3])); // 5
 // 11. Napisz funkcję która zwraca odwróconą liczbę 
 // Użyj do tego operatora reszty z dzielenia "%"
 
-const reverseNumber = () => {
-    // ...
-}
+const reverseNumber = (number) => (Number(number.toString().split('').reverse().join('')))
+
+// const reverseNumber = (number) => {
+//     let helper = number
+//     const array = []
+//
+//     while (helper > 0) {
+//         array.push(helper % 10)
+//         helper = Math.floor(helper / 10)
+//     }
+//     return Number(array.join(''))
+// }
+
 
 console.log(reverseNumber(1234)); //4321
 console.log(reverseNumber(212121)); //121212
@@ -123,9 +133,7 @@ console.log(reverseNumber(0)); //0
 
 // 12. Napisz funkcję która zwraca liczbę samogłosek w podanym stringu
 
-const countVowel = () => {
-    // ...
-}
+const countVowel = (word) => Array.from(word).filter((letter) => ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'].includes(letter)).length
 
 console.log(countVowel("Hello")) //2
 console.log(countVowel("Umbrella")) //3
@@ -133,9 +141,7 @@ console.log(countVowel("Umbrella")) //3
 
 // 13. Napisz funkcję która sprawdza czy słowo jest palindromem
 
-const findPalindrome = () => {
-    // ...
-}
+const findPalindrome = (word) => word.split('').reverse().join('') === word ? true : false
 
 console.log(findPalindrome("bannana")) //false
 console.log(findPalindrome("racecar")) //true
