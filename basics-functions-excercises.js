@@ -133,7 +133,7 @@ console.log(reverseNumber(0)); //0
 
 // 12. Napisz funkcję która zwraca liczbę samogłosek w podanym stringu
 
-const countVowel = (word) => Array.from(word).filter((letter) => ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'].includes(letter)).length
+const countVowel = (word) => Array.from(word.toLowerCase()).filter((letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter)).length
 
 console.log(countVowel("Hello")) //2
 console.log(countVowel("Umbrella")) //3
@@ -150,9 +150,7 @@ console.log(findPalindrome("madam")) //true
 
 // 14. Napisz funkcję która spłaszcza tablicę 2D do tablicy 1D
 
-const flattenArr = () => {
-    // ...
-}
+const flattenArr = (array2D) => array2D.flat()
 
 console.log(flattenArr([[1, 2, 3], [4, 5, 6], [7, 8, 9]])) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 console.log(flattenArr([[1, 2, 3], [], [7, 8, 9]])) // [1, 2, 3, 7, 8, 9]
@@ -160,9 +158,7 @@ console.log(flattenArr([[1, 2, 3], [], [7, 8, 9]])) // [1, 2, 3, 7, 8, 9]
 
 // 15. Napisz funkcję która zwraca losową liczbę całkowitą z zadanego przedziału
 
-const genRandom = () => {
-    // ...
-}
+const genRandom = (a, b) => Math.floor((Math.random() * (b - a)) + a)
 
 console.log(genRandom(1, 10)) // 1 - 10
 console.log(genRandom(80, 90)) // 80 - 90
@@ -170,9 +166,11 @@ console.log(genRandom(80, 90)) // 80 - 90
 
 // 16. Napisz funkcję, która doda do siebie nielimitowaną liczbę argumentów
 
-const addNumber = (...args) => {
-    // ...
-}
+const addNumber = (...args) => (args.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0,
+    )
+)
 
 console.log(addNumber(1, 2, 3, 4, 5)); // 15
 console.log(addNumber(1, 2, 3)); // 6
@@ -181,21 +179,33 @@ console.log(addNumber(1, 2, 3)); // 6
 // 17. Napisz funkcję która zwróci liczbę zadanych znaków w zadanym stringu
 // Jeśli podamy "X" to zliczamy zarówno "x" jak i "X"
 
-const letterCount = () => {
-    // ...
+const letterCount = (arguments, letter) => {
+    const number = Array.from(arguments.toLowerCase()).filter((item) => letter.includes(item)).length
+    return number;
 }
 
 console.log(letterCount("Connect", 'c')) // 2
-console.log(letterCount("first person shooter", 's')) // 2
+console.log(letterCount("first person shooter", 's')) // 3
 
 
 // 18. Napisz funkcję która sprawdzi czy liczba jest liczbą pierwszą
 
-const checkPrime = () => {
-    // ...
+const checkPrime = (number) => {
+    if (number === 1) {
+        return false
+    }
+    if (number === 2) {
+        return true
+    }
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+            return false
+        }
+    }
+    return true
 }
 
-console.log(checkPrime(1)); // true
+console.log(checkPrime(1)); // false
 console.log(checkPrime(2)); // true
 console.log(checkPrime(7)); // true
 console.log(checkPrime(4)); // false
