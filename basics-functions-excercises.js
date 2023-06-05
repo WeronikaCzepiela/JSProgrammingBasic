@@ -194,9 +194,6 @@ const checkPrime = (number) => {
     if (number === 1) {
         return false
     }
-    if (number === 2) {
-        return true
-    }
     for (let i = 2; i <= Math.sqrt(number); i++) {
         if (number % i === 0) {
             return false
@@ -215,23 +212,39 @@ console.log(checkPrime(100000)) // false
 
 
 // 19. Napisz funkcję, która na podstawie tablicy z a,b oraz c zwróci ich miejsca zerowe
-// deltę oraz współrzędne wierzchołka 
+// // deltę oraz współrzędne wierzchołka
 
-const squareFunctionInfo = () => {
-    // ...
+const squareFunctionInfo = (array) => {
+    const results = array.map(
+        (item) => {
+            const {a, b, c} = item
+            let zeros = []
+            let delta = 0
+            let node = []
+            delta = b * b - 4 * a * c
+            node = [(-b / 2 / a), (-delta / 4 / a)]
+            if (delta === 0) {
+                zeros = [((-b + Math.sqrt(delta)) / 2 / a)]
+            }
+            if (delta > 0) {
+                zeros = [((-b + Math.sqrt(delta)) / 2 / a), ((-b - Math.sqrt(delta)) / 2 / a)]
+            }
+
+            return [{zeros: zeros}, {delta: delta}, {node: node}]
+        }
+    )
+    return results
 }
 
-console.log(squareFunctionInfo([{a: 2, b: 4, c: 1}]));
-// [{ zeros: [-2, 0], delta: 0, node: [-1, -2]}]
-console.log(squareFunctionInfo([{a: 2, b: 4, c: 1}, {a: 1, b: 0, c: 4}]));
-// [{ zeros: [-2, 0], delta: 0, node: [-1, -2]}, { zeros: [], delta: 16, node: [0, 4]}]
+console.log(squareFunctionInfo([{a: 1, b: -5, c: 6}]));
+// [{ zeros: [3, 2], delta: 1, node: [2.5, -0.25]}]
+console.log(squareFunctionInfo([{a: 1, b: -5, c: 6}, {a: 1, b: 0, c: 4}]));
+// [{ zeros: [3, 2], delta: 1, node: [2.5, -0.25]}, { zeros: [], delta: -16, node: [0, 4]}]
 
 
 // 20. Napisz funkcje obliczającą potęgę pierwszego argumentu do potęgi drugiego argumentu
 
-const calculatePower = () => {
-    // ...
-}
+const calculatePower = (a, b) => a ** b
 
 console.log(calculatePower(2, 5)); // 32
 console.log(calculatePower(6, 4)); // 1296
