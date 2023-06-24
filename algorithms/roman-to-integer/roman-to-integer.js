@@ -32,12 +32,9 @@ const romanToInt = (s) => {
       }
       if (array[i] === array[i + 1]) {
         a = a + array[i + 1] + array[i];
+
         i++;
-      } else {
-        a = a + array[i];
       }
-    } else {
-      a = a + array[i];
     }
   }
 
