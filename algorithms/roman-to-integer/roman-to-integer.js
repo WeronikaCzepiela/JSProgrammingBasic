@@ -1,5 +1,4 @@
 const romanToInt = (s) => {
-  //Zmiaana znaków w tablicy z rzysmkich na liczby
   const array = s.split("");
   for (let i = 0; i < array.length; i++) {
     if (array[i] === "I") {
@@ -17,28 +16,27 @@ const romanToInt = (s) => {
     if (array[i] === "C") {
       array.splice(i, 1, 100);
     }
+    if (array[i] === "D") {
+      array.splice(i, 1, 500);
+    }
     if (array[i] === "M") {
       array.splice(i, 1, 1000);
     }
   }
 
-  //Dodawanie
   let a = 0;
   for (let i = 0; i < array.length; i++) {
     if (i + 1 < array.length) {
+      if (array[i] > array[i + 1]) {
+        a = a + array[i];
+      }
       if (array[i] < array[i + 1]) {
         a = a + array[i + 1] - array[i];
         i++;
-        break;
       }
       if (array[i] === array[i + 1]) {
         a = a + array[i + 1] + array[i];
         i++;
-        break;
-      }
-      if (array[i] > array[i + 1]) {
-        a = a + array[i];
-        console.log(i);
       }
     } else {
       a = a + array[i];
