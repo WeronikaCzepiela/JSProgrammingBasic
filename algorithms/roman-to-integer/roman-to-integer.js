@@ -29,12 +29,19 @@ const romanToInt = (s) => {
       if (array[i] < array[i + 1]) {
         a = a + array[i + 1] - array[i];
         i++;
+        break;
       }
       if (array[i] === array[i + 1]) {
         a = a + array[i + 1] + array[i];
-
         i++;
+        break;
       }
+      if (array[i] > array[i + 1]) {
+        a = a + array[i];
+        console.log(i);
+      }
+    } else {
+      a = a + array[i];
     }
   }
 
