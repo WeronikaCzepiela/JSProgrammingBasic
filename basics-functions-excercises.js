@@ -1,118 +1,105 @@
 // 1. Napisz funkcję strzałkową które wyświetla w konsoli napis "Hello World"
 
-const displayMessage = () => console.log('Hello World')
-
+const displayMessage = () => console.log("Hello World");
 
 displayMessage(); // Hello World
 
-
 // 2. Napisz funckję która przyjmuje liczbę i zwraca jej kwadrat
 
-const findSquare = (x) => (x * x)
-
+const findSquare = (x) => x * x;
 
 console.log(findSquare(2)); // 4
 console.log(findSquare(9)); // 81
 
-
 // 3. Napisz funkcję która przelicza stopnie celcjusa na farenheity
 
-const celciusToFarenheit = (x) => (x * 9 / 5 + 32)
+const celciusToFarenheit = (x) => (x * 9) / 5 + 32;
 
 console.log(celciusToFarenheit(0)); // 32
 console.log(celciusToFarenheit(20)); // 68
 console.log(celciusToFarenheit(40)); // 104
 
-
 // 4. Napisz funckję która zwraca pole prostokątu o bokach długości a oraz b
 
-const rectangleArea = (a, b) => (a * b)
+const rectangleArea = (a, b) => a * b;
 
 console.log(rectangleArea(10, 20)); // 200
 console.log(rectangleArea(30, 30)); // 900
 
-
 // 5. Napisz funkcję która zwraca obwód oraz pole koła na podstawie promienia w postaci obiektu
 
 const circleValues = (rad) => ({
-    perimeter: Number((2 * 3.1415 * rad).toFixed(2)),
-    area: Number((3.1415 * rad * rad).toFixed(2))
-})
+  perimeter: Number((2 * 3.1415 * rad).toFixed(2)),
+  area: Number((3.1415 * rad * rad).toFixed(2)),
+});
 
-console.log(circleValues(10)) // { perimeter: 62.83, area: 314.15 }
-console.log(circleValues(15)) // { perimeter: 94.24, area: 706.85 }
-console.log(circleValues(25)) // { perimeter: 157.07, area: 1963.49 }
-
+console.log(circleValues(10)); // { perimeter: 62.83, area: 314.15 }
+console.log(circleValues(15)); // { perimeter: 94.24, area: 706.85 }
+console.log(circleValues(25)); // { perimeter: 157.07, area: 1963.49 }
 
 // 6. Napisz funkcję która zwraca długość tablicy podanej jako argument
 
-const getArrayLength = (array) => array.length
+const getArrayLength = (array) => array.length;
 
 console.log(getArrayLength([1, 1, 2, 2, 3])); // 5
 console.log(getArrayLength([1, "xxx", 2, false])); // 4
 console.log(getArrayLength([])); // 0
 
-
 // 7. Napisz funkcję która zmapuje tablicę z liczbami na tablice z stringami
-// Użyj w tym celu funkcji map 
+// Użyj w tym celu funkcji map
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
-const numberArrayToStringArray = (array) => (array.map(String))
+const numberArrayToStringArray = (array) => array.map(String);
 
 console.log(numberArrayToStringArray([1, 7, 99])); // ["1", "7", "99"]
 console.log(numberArrayToStringArray([])); // []
 
-
 // 8. Napisz funkcję która zwróci sumę liczb podanych w tablicy
-// Użyj w tym celu funkcji reduce 
+// Użyj w tym celu funkcji reduce
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 
-const getArraySum = (array) => array.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0,
-);
-
+const getArraySum = (array) =>
+  array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 console.log(getArraySum([5, 20, 5])); // 30
 console.log(getArraySum([-1, 0, 1])); // 0
-
 
 // 9. Napisz funkcję która zwróci podaną tablicę bez liczb parzystych
 // Użyj funkcji filter
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
-const getArrayWithoutEvenNumbers = (array) => (array.filter(item => item % 2 !== 0))
+const getArrayWithoutEvenNumbers = (array) =>
+  array.filter((item) => item % 2 !== 0);
 
 console.log(getArrayWithoutEvenNumbers([1, 2, 3, 4, 5, 6, 7])); // [1, 3, 5, 7]
 console.log(getArrayWithoutEvenNumbers([10, 20, 100])); // []
 console.log(getArrayWithoutEvenNumbers([1, 9, 17])); // [1, 9, 17]
 
-
-// 10. Napisz funkcję która zwróci sumę najmniejszej parzystej oraz 
+// 10. Napisz funkcję która zwróci sumę najmniejszej parzystej oraz
 // największej nieparzystej liczby z tablicy.
 // Jeśli w tablicy nie występuje żadna wartość parzysta lub nieparzysta
 // Podstawn za nią 0
 
 const getSumOfSomething = (array) => {
-    const evenNumbers = array.filter(item => item % 2 === 0)
-    const evenNumber = evenNumbers.length ? Math.min(...evenNumbers) : 0
+  const evenNumbers = array.filter((item) => item % 2 === 0);
+  const evenNumber = evenNumbers.length ? Math.min(...evenNumbers) : 0;
 
-    const oddNumbers = array.filter(item => item % 2 === 1)
-    const oddNumber = oddNumbers.length ? Math.max(...oddNumbers) : 0
+  const oddNumbers = array.filter((item) => item % 2 === 1);
+  const oddNumber = oddNumbers.length ? Math.max(...oddNumbers) : 0;
 
-    return oddNumber + evenNumber;
-}
+  return oddNumber + evenNumber;
+};
 
 console.log(getSumOfSomething([1, 8, 4, 27, 13, 30])); // 31
 console.log(getSumOfSomething([1, 3, 5, 7])); // 7
 console.log(getSumOfSomething([2, 2, 2, 2])); // 2
 console.log(getSumOfSomething([2, 2, 1, 3])); // 5
 
-
-// 11. Napisz funkcję która zwraca odwróconą liczbę 
+// 11. Napisz funkcję która zwraca odwróconą liczbę
 // Użyj do tego operatora reszty z dzielenia "%"
 
-const reverseNumber = (number) => (Number(number.toString().split('').reverse().join('')))
+const reverseNumber = (number) =>
+  Number(number.toString().split("").reverse().join(""));
 
 // const reverseNumber = (number) => {
 //     let helper = number
@@ -125,126 +112,130 @@ const reverseNumber = (number) => (Number(number.toString().split('').reverse().
 //     return Number(array.join(''))
 // }
 
-
 console.log(reverseNumber(1234)); //4321
 console.log(reverseNumber(212121)); //121212
 console.log(reverseNumber(0)); //0
 
-
 // 12. Napisz funkcję która zwraca liczbę samogłosek w podanym stringu
 
-const countVowel = (word) => Array.from(word.toLowerCase()).filter((letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter)).length
+const countVowel = (word) =>
+  Array.from(word.toLowerCase()).filter((letter) =>
+    ["a", "e", "i", "o", "u"].includes(letter)
+  ).length;
 
-console.log(countVowel("Hello")) //2
-console.log(countVowel("Umbrella")) //3
-
+console.log(countVowel("Hello")); //2
+console.log(countVowel("Umbrella")); //3
 
 // 13. Napisz funkcję która sprawdza czy słowo jest palindromem
 
-const findPalindrome = (word) => word.split('').reverse().join('') === word ? true : false
+const findPalindrome = (word) => word.split("").reverse().join("") === word;
 
-console.log(findPalindrome("bannana")) //false
-console.log(findPalindrome("racecar")) //true
-console.log(findPalindrome("madam")) //true
-
+console.log(findPalindrome("bannana")); //false
+console.log(findPalindrome("racecar")); //true
+console.log(findPalindrome("madam")); //true
 
 // 14. Napisz funkcję która spłaszcza tablicę 2D do tablicy 1D
 
-const flattenArr = (array2D) => array2D.flat()
+const flattenArr = (array2D) => array2D.flat();
 
-console.log(flattenArr([[1, 2, 3], [4, 5, 6], [7, 8, 9]])) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-console.log(flattenArr([[1, 2, 3], [], [7, 8, 9]])) // [1, 2, 3, 7, 8, 9]
-
+console.log(
+  flattenArr([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(flattenArr([[1, 2, 3], [], [7, 8, 9]])); // [1, 2, 3, 7, 8, 9]
 
 // 15. Napisz funkcję która zwraca losową liczbę całkowitą z zadanego przedziału
 
-const genRandom = (a, b) => Math.floor((Math.random() * (b - a)) + a)
+const genRandom = (a, b) => Math.floor(Math.random() * (b - a) + a);
 
-console.log(genRandom(1, 10)) // 1 - 10
-console.log(genRandom(80, 90)) // 80 - 90
-
+console.log(genRandom(1, 10)); // 1 - 10
+console.log(genRandom(80, 90)); // 80 - 90
 
 // 16. Napisz funkcję, która doda do siebie nielimitowaną liczbę argumentów
 
-const addNumber = (...args) => (args.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        0,
-    )
-)
+const addNumber = (...args) =>
+  args.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 console.log(addNumber(1, 2, 3, 4, 5)); // 15
 console.log(addNumber(1, 2, 3)); // 6
-
 
 // 17. Napisz funkcję która zwróci liczbę zadanych znaków w zadanym stringu
 // Jeśli podamy "X" to zliczamy zarówno "x" jak i "X"
 
 const letterCount = (arguments, letter) => {
-    const number = Array.from(arguments.toLowerCase()).filter((item) => letter.includes(item)).length
-    return number;
-}
+  const number = Array.from(arguments.toLowerCase()).filter((item) =>
+    letter.includes(item)
+  ).length;
+  return number;
+};
 
-console.log(letterCount("Connect", 'c')) // 2
-console.log(letterCount("first person shooter", 's')) // 3
-
+console.log(letterCount("Connect", "c")); // 2
+console.log(letterCount("first person shooter", "s")); // 3
 
 // 18. Napisz funkcję która sprawdzi czy liczba jest liczbą pierwszą
 
 const checkPrime = (number) => {
-    if (number === 1) {
-        return false
+  if (number === 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
     }
-    for (let i = 2; i <= Math.sqrt(number); i++) {
-        if (number % i === 0) {
-            return false
-        }
-    }
-    return true
-}
+  }
+  return true;
+};
 
 console.log(checkPrime(1)); // false
 console.log(checkPrime(2)); // true
 console.log(checkPrime(7)); // true
 console.log(checkPrime(4)); // false
-console.log(checkPrime(27)) // false
-console.log(checkPrime(19)) // true
-console.log(checkPrime(100000)) // false
-
+console.log(checkPrime(27)); // false
+console.log(checkPrime(19)); // true
+console.log(checkPrime(100000)); // false
 
 // 19. Napisz funkcję, która na podstawie tablicy z a,b oraz c zwróci ich miejsca zerowe
 // // deltę oraz współrzędne wierzchołka
 
 const squareFunctionInfo = (array) => {
-    const results = array.map(
-        (item) => {
-            const {a, b, c} = item
-            let zeros = []
-            let delta = 0
-            let node = []
-            delta = b * b - 4 * a * c
-            node = [(-b / 2 / a), (-delta / 4 / a)]
-            if (delta === 0) {
-                zeros = [((-b + Math.sqrt(delta)) / 2 / a)]
-            }
-            if (delta > 0) {
-                zeros = [((-b + Math.sqrt(delta)) / 2 / a), ((-b - Math.sqrt(delta)) / 2 / a)]
-            }
+  const results = array.map((item) => {
+    const { a, b, c } = item;
+    let zeros = [];
+    let delta = 0;
+    let node = [];
+    delta = b * b - 4 * a * c;
+    node = [-b / 2 / a, -delta / 4 / a];
+    if (delta === 0) {
+      zeros = [(-b + Math.sqrt(delta)) / 2 / a];
+    }
+    if (delta > 0) {
+      zeros = [
+        (-b + Math.sqrt(delta)) / 2 / a,
+        (-b - Math.sqrt(delta)) / 2 / a,
+      ];
+    }
 
-            return [{zeros: zeros}, {delta: delta}, {node: node}]
-        }
-    )
-    return results
-}
+    return [{ zeros: zeros }, { delta: delta }, { node: node }];
+  });
+  return results;
+};
 
-console.log(squareFunctionInfo([{a: 1, b: -5, c: 6}]));
+console.log(squareFunctionInfo([{ a: 1, b: -5, c: 6 }]));
 // [{ zeros: [3, 2], delta: 1, node: [2.5, -0.25]}]
-console.log(squareFunctionInfo([{a: 1, b: -5, c: 6}, {a: 1, b: 0, c: 4}]));
+console.log(
+  squareFunctionInfo([
+    { a: 1, b: -5, c: 6 },
+    { a: 1, b: 0, c: 4 },
+  ])
+);
 // [{ zeros: [3, 2], delta: 1, node: [2.5, -0.25]}, { zeros: [], delta: -16, node: [0, 4]}]
-
 
 // 20. Napisz funkcje obliczającą potęgę pierwszego argumentu do potęgi drugiego argumentu
 
-const calculatePower = (a, b) => a ** b
+const calculatePower = (a, b) => a ** b;
 
 console.log(calculatePower(2, 5)); // 32
 console.log(calculatePower(6, 4)); // 1296
