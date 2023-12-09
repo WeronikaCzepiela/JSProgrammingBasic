@@ -101,17 +101,6 @@ console.log(getSumOfSomething([2, 2, 1, 3])); // 5
 const reverseNumber = (number) =>
   Number(number.toString().split("").reverse().join(""));
 
-// const reverseNumber = (number) => {
-//     let helper = number
-//     const array = []
-//
-//     while (helper > 0) {
-//         array.push(helper % 10)
-//         helper = Math.floor(helper / 10)
-//     }
-//     return Number(array.join(''))
-// }
-
 console.log(reverseNumber(1234)); //4321
 console.log(reverseNumber(212121)); //121212
 console.log(reverseNumber(0)); //0
