@@ -1,6 +1,6 @@
 # JS Programming Basic
 
-A repository with basic algorithms to learn the basics of JS.
+A repository with common algorithms to learn the basics of JS.
 
 ##  Destription 
 
