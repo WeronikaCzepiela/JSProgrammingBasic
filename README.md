@@ -8,5 +8,6 @@ There are several examples of different algorithms in this repository. This allo
 Here you can find algorithms like bubbe sort, or fizz-buzz. There are also several algorithms from Leet Code.
 
 ## How to run?
-You have to by in correct directory and then paste 'node .\namOfTheProject'. For example if you want to run longest-common-prefix go into directory with this algorithm and paste this command: 
+
+You have to go in correct directory and then paste 'node .\namOfTheProject'. For example if you want to run longest-common-prefix go into directory with this algorithm and paste this command: 
 `node .\longest-common-prefix.js` 
