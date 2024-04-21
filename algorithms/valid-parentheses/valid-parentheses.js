@@ -21,3 +21,4 @@ const validParentheses = (arg) => {
 console.log(validParentheses("()"));
 console.log(validParentheses("()[]{}"));
 console.log(validParentheses("(]"));
+console.log(validParentheses("(({}[]))"));
