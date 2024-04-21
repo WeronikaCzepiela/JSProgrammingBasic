@@ -1,10 +1,7 @@
 const twoSum = (array, target) => {
-  let firstId = 0;
-  let result = target - array[0];
-  for (let i = 1; i <= array.length; i++) {
-    if (result === array[i]) return [firstId, i];
-    result = target - array[i];
-    firstId = i;
+  const shortedArray = [...array].sort().filter((number) => number < target);
+  for (let i = 0; i < shortedArray.length; i++) {
+    for (let j = shortedArray.length - 1; j > i; j--) {}
   }
   return [];
 };
