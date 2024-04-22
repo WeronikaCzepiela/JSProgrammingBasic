@@ -2,8 +2,11 @@ const twoSum = (array, target) => {
   const shortedArray = [...array].sort().filter((number) => number < target);
   let result;
   for (let i = 0; i < shortedArray.length; i++) {
-    result = target - shortedArray[i];
-    for (let j = shortedArray.length - 1; j > i; j--) {}
+    for (let j = shortedArray.length - 1; j > i; j--) {
+      result = shortedArray[i] + shortedArray[j]
+      if (result === target) return [i,j]
+      if (result > target)
+    }
   }
 
   return [];
